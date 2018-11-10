@@ -1,0 +1,14 @@
+<html>
+<body>
+{% if average_temp %}
+    <h1>Average Temp: {{ average_temp }}</h1>
+
+{% endif %}
+<form method="get" target="{% url 'weather_api' %}">
+    {# No CSRF token required because the form is submitted via GET instead of the usual POST #}
+    {{ form.as_p }}
+    <input type="hidden" name="from_form", value="true">
+    <input type="submit">
+</form>
+</body>
+</html>
